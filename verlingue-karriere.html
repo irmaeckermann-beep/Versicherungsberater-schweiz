@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobs bei Verlingue – Jetzt bewerben</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #00175C;
+      --blue:   #003D9F;
+      --teal:   #5CEBD5;
+      --teal2:  #3ED4BC;
+      --white:  #fff;
+      --slate:  #F0F5FF;
+      --muted:  #5A6A9A;
+      --border: #D8E2F5;
+      --dark:   #00175C;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100dvh;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, #EDF2FF 0%, #F6F9FF 60%, #EAF0FF 100%);
+      -webkit-font-smoothing: antialiased;
+      color: var(--navy);
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+    }
+
+    .nav-inner {
+      max-width: 700px; margin: 0 auto;
+      height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .vl-logo { height: 26px; width: auto; color: var(--blue); display: block; }
+
+    .nav-cta {
+      background: var(--teal); color: var(--navy);
+      border: none; border-radius: 24px;
+      padding: 9px 22px; font-size: 14px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer; transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--teal2); transform: scale(1.03); }
+
+    /* HERO */
+    .hero { max-width: 700px; margin: 0 auto; padding: 40px 20px 0; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(0,23,92,0.07);
+      border: 1px solid rgba(0,23,92,0.15);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 11px; font-weight: 700; color: var(--navy);
+      letter-spacing: .6px; text-transform: uppercase; margin-bottom: 18px;
+    }
+
+    .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; flex-shrink: 0; }
+
+    .hero h1 {
+      font-size: clamp(30px, 5.5vw, 48px);
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400; color: var(--navy);
+      line-height: 1.1; letter-spacing: -.2px; margin-bottom: 14px;
+    }
+
+    .hero h1 em { color: var(--blue); font-style: italic; }
+
+    .hero-sub {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 26px; max-width: 480px;
+    }
+
+    .perks { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 36px; }
+
+    .perk {
+      display: flex; align-items: center; gap: 6px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 100px; padding: 7px 14px;
+      font-size: 13px; font-weight: 600; color: var(--navy);
+    }
+
+    /* FUNNEL */
+    .funnel-area { max-width: 700px; margin: 0 auto; padding: 0 20px 56px; }
+
+    .prog-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+
+    .prog-track { flex: 1; height: 4px; border-radius: 99px; background: var(--border); overflow: hidden; }
+
+    .prog-fill {
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, var(--orange), var(--gold));
+      transition: width .5s cubic-bezier(.4,0,.2,1);
+    }
+
+    .prog-label { font-size: 12px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+
+    /* CARD */
+    .card {
+      background: #fff; border-radius: 22px; padding: 34px 30px;
+      box-shadow: 0 16px 56px rgba(0,0,0,.22), 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    @media (max-width: 440px) { .card { padding: 26px 18px; } }
+
+    .card.anim { animation: pop .36s cubic-bezier(.25,.8,.25,1) both; }
+
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(18px) scale(.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      padding: 0; margin-bottom: 20px; transition: color .2s;
+    }
+
+    .back-btn:hover { color: var(--blue); }
+
+    .chip-tag {
+      display: inline-block;
+      background: rgba(92,235,213,0.2); color: var(--navy);
+      border-radius: 100px; padding: 4px 12px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase; margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400; color: var(--navy);
+      letter-spacing: -.2px; line-height: 1.2; margin-bottom: 8px;
+    }
+
+    .sub { font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 22px; }
+
+    /* LOADER */
+    .loader {
+      display: flex; align-items: center; gap: 10px;
+      padding: 28px 0; color: var(--muted); font-size: 14px; font-weight: 600;
+    }
+
+    .spin {
+      width: 20px; height: 20px; border-radius: 50%;
+      border: 2.5px solid var(--border); border-top-color: var(--blue);
+      animation: spinning .7s linear infinite; flex-shrink: 0;
+    }
+
+    @keyframes spinning { to { transform: rotate(360deg); } }
+
+    /* JOB CARDS */
+    .jobs { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
+
+    .job-opt {
+      border: 2.5px solid var(--border); border-radius: 14px;
+      padding: 18px; cursor: pointer; background: #fff;
+      transition: border-color .2s, background .2s, transform .15s, box-shadow .2s;
+      position: relative;
+    }
+
+    .job-opt::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%; background: var(--blue); opacity: 0;
+      border-radius: 4px 0 0 4px; transition: opacity .2s;
+    }
+
+    .job-opt:hover { border-color: var(--blue); box-shadow: 0 4px 18px rgba(0,61,159,.12); transform: translateY(-2px); }
+    .job-opt.sel { border-color: var(--blue); background: linear-gradient(135deg, #EBF2FF, #F4F8FF); }
+    .job-opt.sel::before { opacity: 1; }
+
+    .sel-mark {
+      display: none; position: absolute; top: 14px; right: 14px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--teal); color: var(--navy);
+      align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+    }
+
+    .job-opt.sel .sel-mark { display: flex; }
+
+    .job-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 4px; padding-right: 30px; }
+    .job-desc { font-size: 13px; color: var(--muted); line-height: 1.4; margin-bottom: 10px; }
+
+    .job-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .jtag { background: var(--slate); color: var(--muted); border-radius: 100px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
+
+    /* LOCATION */
+    .locs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+
+    .loc-btn {
+      border: 2.5px solid var(--border); border-radius: 12px;
+      padding: 16px 10px 14px; background: #fff;
+      font-size: 14px; font-weight: 700; color: var(--muted);
+      cursor: pointer; text-align: center; transition: all .2s;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+
+    .loc-em { font-size: 22px; }
+
+    .loc-btn:hover { border-color: var(--blue); color: var(--blue); background: #EBF2FF; }
+    .loc-btn.sel { border-color: var(--teal); background: var(--teal); color: var(--navy); }
+
+    /* CHIPS */
+    .chip-section { margin-bottom: 20px; }
+
+    .cs-head {
+      font-size: 11px; font-weight: 800; letter-spacing: .7px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .chip {
+      border: 2px solid var(--border); border-radius: 100px;
+      padding: 7px 14px; background: #fff;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      cursor: pointer; transition: all .18s; user-select: none; text-align: left;
+    }
+
+    .chip:hover { border-color: var(--blue); color: var(--blue); }
+    .chip.on { border-color: var(--teal); background: var(--teal); color: var(--navy); }
+
+    .cnt-bar {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--slate); border-radius: 10px;
+      padding: 11px 14px; margin-bottom: 18px;
+    }
+
+    .cnt-txt { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .cnt-txt b { color: var(--blue); }
+    .cnt-track { width: 64px; height: 5px; border-radius: 99px; background: var(--border); overflow: hidden; flex-shrink: 0; }
+    .cnt-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--orange)); transition: width .35s; }
+
+    /* FORM */
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+    @media (max-width: 380px) { .row2 { grid-template-columns: 1fr; } }
+
+    .fg { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+
+    .fg label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+
+    .fg input, .fg textarea {
+      padding: 12px 14px; border: 2px solid var(--border); border-radius: 10px;
+      font-size: 15px; color: var(--dark); background: #fff;
+      outline: none; transition: border-color .2s; font-family: inherit; width: 100%;
+    }
+
+    .fg input::placeholder, .fg textarea::placeholder { color: #BFC9E5; }
+    .fg input:focus, .fg textarea:focus { border-color: var(--blue); }
+    .fg input.err { border-color: #E53E3E; }
+    textarea { resize: vertical; min-height: 76px; }
+    .emsg { font-size: 11px; color: #E53E3E; font-weight: 700; display: none; }
+
+    .gdpr {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--slate); border-radius: 10px;
+      padding: 12px 14px; margin-bottom: 18px; cursor: pointer;
+    }
+
+    .gdpr input { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; accent-color: var(--blue); cursor: pointer; }
+    .gdpr p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .gdpr-err { font-size: 11px; color: #E53E3E; font-weight: 700; display: none; margin: -14px 0 14px; }
+
+    /* BUTTON */
+    .btn {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 15px 20px; background: var(--teal); color: var(--navy);
+      border: none; border-radius: 24px;
+      font-size: 15px; font-weight: 700; letter-spacing: .1px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s;
+    }
+
+    .btn:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(92,235,213,.4); }
+    .btn:active { transform: none; }
+    .btn:disabled { opacity: .35; pointer-events: none; }
+    .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    /* THANK YOU */
+    .ty-icon {
+      width: 76px; height: 76px;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; box-shadow: 0 8px 30px rgba(92,235,213,.4);
+    }
+
+    .ty-icon svg { width: 36px; height: 36px; color: #fff; }
+
+    .sum { background: var(--slate); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+
+    .srow { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .srow:last-child { border: none; }
+    .sk { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); min-width: 62px; padding-top: 1px; }
+    .sv { font-size: 13px; font-weight: 700; color: var(--dark); line-height: 1.4; }
+
+    /* VISIBILITY */
+    .step { display: none; }
+    .step.on { display: block; }
+
+    footer {
+      max-width: 700px; margin: 0 auto; padding: 0 20px 32px;
+      text-align: center; font-size: 12px; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" style="display:flex;align-items:center;text-decoration:none;">
+      <!-- Official Verlingue SVG Logo extracted from verlingue.ch -->
+      <svg class="vl-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.94 41.95">
+        <defs>
+          <linearGradient id="vlg" y1=".5" x2="1" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#70a3ff"/>
+            <stop offset=".07" stop-color="#568be9"/>
+            <stop offset=".2" stop-color="#3169c9"/>
+            <stop offset=".31" stop-color="#1651b2"/>
+            <stop offset=".42" stop-color="#0542a3"/>
+            <stop offset=".49" stop-color="#003d9f"/>
+            <stop offset=".94" stop-color="#70a3ff"/>
+          </linearGradient>
+        </defs>
+        <path d="M445.4 452.76l-13.94 13.97a5.9 5.9 0 01-8.65 0l-15.99-15.97a8.22 8.22 0 00-5.66-2.29v-2.61a10.9 10.9 0 017.48 3.02l16.06 16.03a3.36 3.36 0 002.44 1.09 3.32 3.32 0 002.44-1.08l13.76-13.79z" transform="translate(-332.91 -445.81)" fill="url(#vlg)"/>
+        <path d="M110.43 5.32l1.48-1.48a8.04 8.04 0 00-4.19-1.18 8.24 8.24 0 00-5.67 2.29L86.06 20.92a5.9 5.9 0 01-8.65 0L60.14 3.62C62.62 1.47 64.82.05 68.27.05l-.02 2.61a8.06 8.06 0 00-4.2 1.18l15.24 15.27a3.32 3.32 0 002.44 1.08 3.36 3.36 0 002.45-1.09l16.06-16.03a10.9 10.9 0 017.48-3.02c3.46 0 5.63 1.42 8.1 3.56l-3.33 3.34z" fill="#70a3ff"/>
+        <path d="M43.15 38.3v3H32.8a7.46 7.46 0 010-14.92h10.35v3.02H32.8a4.25 4.25 0 00-2.86 1.07 4.46 4.46 0 00-1.27 1.82h13.29v2.94H28.61a4.56 4.56 0 002.96 2.88 4.16 4.16 0 001.23.18zm16.13-1.88h-8.16v4.9l-3.05-.02V26.36h13.05a5.03 5.03 0 011.85 9.7l3.64 5.24h-3.78zm-8.16-7v3.97h10a1.99 1.99 0 000-3.97h-10zm32.65 11.89H76.4a6.24 6.24 0 01-6.24-6.24l-.01-8.7h3.12v8.71a3.12 3.12 0 003.13 3.13h7.37zm2.9-14.95h3.12v14.95h-3.12zm11.05 4v10.95H94.6V26.35h3.05l12 10.96V26.35h3.12V41.3h-3.02zm26.44 10.95a7.475 7.475 0 010-14.95h11.1v3.12h-11.1a4.17 4.17 0 00-2.8 1.05 4.37 4.37 0 001.6 7.5 4.07 4.07 0 001.2.18h7.98v-2.94h-4.04v-2.86h7.16v8.9zm15.12-6.24v-8.7h3.12v8.72a3.12 3.12 0 003.12 3.12h3.9a3.12 3.12 0 003.12-3.12v-8.73h3.12v8.7a6.24 6.24 0 01-6.24 6.25h-3.9a6.24 6.24 0 01-6.24-6.24zm37.66 3.23v3h-10.36a7.46 7.46 0 010-14.92h10.35v3.02h-10.35a4.25 4.25 0 00-2.85 1.07 4.46 4.46 0 00-1.28 1.82h13.3v2.94h-13.37a4.56 4.56 0 002.96 2.88 4.15 4.15 0 001.23.18zm-165.66-.8a1.23 1.23 0 002.07 0l7.29-11.13h3.99l-8.5 13a4.57 4.57 0 01-7.68-.1L0 26.37h3.99z" fill="currentColor" fill-rule="evenodd"/>
+      </svg>
+    </a>
+    <button class="nav-cta" onclick="document.getElementById('funnel').scrollIntoView({behavior:'smooth'})">
+      Jetzt bewerben →
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Offene Stellen 2026
+  </div>
+  <h1>Starte deine Karriere<br>bei <em>Verlingue</em>.</h1>
+  <p class="hero-sub">Einer der grössten Versicherungsbroker der Schweiz – mit 140 Mitarbeitenden und 2'000+ Firmenkunden. In 2 Minuten bewerben.</p>
+  <div class="perks">
+    <div class="perk">🏡 Home Office</div>
+    <div class="perk">📈 Weiterbildung</div>
+    <div class="perk">⏱ Flexible Zeiten</div>
+    <div class="perk">🌍 International</div>
+    <div class="perk">🏆 Top Company 2026</div>
+  </div>
+</div>
+
+<!-- FUNNEL -->
+<div class="funnel-area" id="funnel">
+
+  <div class="prog-row" id="progWrap">
+    <div class="prog-track">
+      <div class="prog-fill" id="progFill" style="width:20%"></div>
+    </div>
+    <div class="prog-label" id="progLabel">Schritt 1 / 5</div>
+  </div>
+
+  <!-- STEP 1: JOB -->
+  <div class="card anim step on" id="s1">
+    <div class="chip-tag">Schritt 1</div>
+    <h2>Welche Stelle interessiert dich?</h2>
+    <p class="sub">Wähle die Position, auf die du dich bewerben möchtest.</p>
+    <div id="jobsWrap">
+      <div class="loader"><div class="spin"></div>Stellen werden geladen…</div>
+    </div>
+    <button class="btn" id="b1" disabled onclick="afterJob()">
+      Weiter
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- STEP 2: LOCATION -->
+  <div class="card anim step" id="s2">
+    <button class="back-btn" onclick="go(1)">← Zurück</button>
+    <div class="chip-tag">Schritt 2</div>
+    <h2>Welcher Standort passt dir?</h2>
+    <p class="sub">Wähle deinen bevorzugten Arbeitsort.</p>
+    <div class="locs" id="locGrid"></div>
+    <button class="btn" id="b2" disabled onclick="afterLoc()">
+      Weiter
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- STEP 3: REQUIREMENTS -->
+  <div class="card anim step" id="s3">
+    <button class="back-btn" onclick="backReq()">← Zurück</button>
+    <div class="chip-tag">Schritt 3</div>
+    <h2>Was bringst du mit?</h2>
+    <p class="sub">Klicke alles an, was auf dich zutrifft.</p>
+    <div class="cnt-bar">
+      <div class="cnt-txt"><b id="cnt">0</b> von <span id="tot">0</span> ausgewählt</div>
+      <div class="cnt-track"><div class="cnt-fill" id="cfill" style="width:0%"></div></div>
+    </div>
+    <div id="reqWrap"></div>
+    <button class="btn" onclick="go(4)">
+      Weiter
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- STEP 4: CONTACT -->
+  <div class="card anim step" id="s4">
+    <button class="back-btn" onclick="go(3)">← Zurück</button>
+    <div class="chip-tag">Schritt 4</div>
+    <h2>Wie erreichen wir dich?</h2>
+    <p class="sub">Fast geschafft! Deine Daten sind sicher bei uns.</p>
+
+    <div class="row2">
+      <div class="fg">
+        <label>Vorname *</label>
+        <input type="text" id="fn" placeholder="Max" />
+        <span class="emsg" id="efn">Pflichtfeld</span>
+      </div>
+      <div class="fg">
+        <label>Nachname *</label>
+        <input type="text" id="ln" placeholder="Muster" />
+        <span class="emsg" id="eln">Pflichtfeld</span>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>E-Mail *</label>
+      <input type="email" id="em" placeholder="max@email.ch" />
+      <span class="emsg" id="eem">Ungültige E-Mail</span>
+    </div>
+
+    <div class="fg">
+      <label>Telefon *</label>
+      <input type="tel" id="ph" placeholder="+41 79 123 45 67" />
+      <span class="emsg" id="eph">Pflichtfeld</span>
+    </div>
+
+    <div class="fg" style="margin-bottom:14px">
+      <label>Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <textarea id="msg" placeholder="Kurze Vorstellung oder Anmerkungen..."></textarea>
+    </div>
+
+    <label class="gdpr">
+      <input type="checkbox" id="ck" />
+      <p>Ich bin damit einverstanden, dass Verlingue meine Daten für die Stellenvermittlung verarbeitet. Löschung nach max. 12 Monaten.</p>
+    </label>
+    <div class="gdpr-err" id="eck">Bitte akzeptieren</div>
+
+    <button class="btn" onclick="submit()">
+      Bewerbung absenden 🚀
+    </button>
+  </div>
+
+  <!-- STEP 5: THANK YOU -->
+  <div class="card anim step" id="s5" style="text-align:center">
+    <div class="ty-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    <div class="chip-tag" style="display:block">Erfolgreich gesendet</div>
+    <h2 style="margin-bottom:8px">Herzlichen Dank! 🎉</h2>
+    <p class="sub">Wir haben deine Bewerbung erhalten und melden uns bald.</p>
+    <div class="sum">
+      <div class="srow"><div class="sk">Stelle</div><div class="sv" id="su-job">–</div></div>
+      <div class="srow" id="su-lr"><div class="sk">Standort</div><div class="sv" id="su-loc">–</div></div>
+      <div class="srow"><div class="sk">Name</div><div class="sv" id="su-name">–</div></div>
+      <div class="srow"><div class="sk">E-Mail</div><div class="sv" id="su-email">–</div></div>
+      <div class="srow"><div class="sk">Telefon</div><div class="sv" id="su-phone">–</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.6">
+      Fragen? <strong style="color:var(--dark)">recruiting@verlingue.ch</strong>
+    </p>
+  </div>
+
+</div>
+<footer>© 2026 Verlingue AG · Versicherungsbroker · Schweiz</footer>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+const S = { job: null, loc: null, reqs: new Set() };
+
+const LOC_ICONS = { 'Bern':'🏛','Zürich':'🏙','Kriens':'⛰','Genf':'⛲','Basel':'🌉','Lausanne':'🏔','Winterthur':'🌿' };
+
+// ============================================================
+// PARSE HTML LIST → plain text items
+// ============================================================
+function htmlToList(html) {
+  if (!html) return [];
+  const div = document.createElement('div');
+  div.innerHTML = html; // browser decodes entities
+  return Array.from(div.querySelectorAll('li')).map(li => li.textContent.trim()).filter(Boolean);
+}
+
+// ============================================================
+// API — LOAD JOBS LIVE FROM VERLINGUE
+// ============================================================
+const API = 'https://api.jobportal.abaservices.ch/api/publication/publications?job-portal-id=c1d88438-73e8-467f-ab14-692e6b1986be';
+
+async function loadJobs() {
+  try {
+    const res = await fetch(API);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const entries = Array.isArray(data) ? data : [];
+
+    // Keep only German publications with a title
+    const deItems = entries.filter(e => e.PublicationLanguage === 'de' && (e.JobTitle || e.PositionTitle));
+
+    // Group by JobTitle — merge locations
+    const byTitle = new Map();
+    deItems.forEach(item => {
+      const title = item.JobTitle || item.PositionTitle;
+      const city  = item.PlaceOfWorkCity || '';
+      const emp   = item.PositionLevelOfEmployment;
+      const reqHtml  = item.Requirements || '';
+      const taskHtml = item.Tasks || '';
+
+      if (!byTitle.has(title)) {
+        byTitle.set(title, { title, locations: [], emp, reqHtml, taskHtml });
+      }
+      const entry = byTitle.get(title);
+      if (city && !entry.locations.includes(city)) entry.locations.push(city);
+      // keep richest Requirements text
+      if (reqHtml.length > entry.reqHtml.length) entry.reqHtml = reqHtml;
+    });
+
+    const jobs = [...byTitle.values()].map(j => ({
+      ...j,
+      hasLoc: j.locations.length > 1,
+      workload: j.emp ? j.emp + '%' : '80–100%',
+      reqs: htmlToList(j.reqHtml),
+      tasks: htmlToList(j.taskHtml)
+    }));
+
+    renderJobs(jobs.length ? jobs : fallbackJobs());
+  } catch(e) {
+    console.warn('API fallback:', e.message);
+    renderJobs(fallbackJobs());
+  }
+}
+
+function fallbackJobs() {
+  return [
+    {
+      title: 'Kundenbetreuer*in Innendienst',
+      locations: ['Zürich','Bern','Kriens'],
+      workload: '80–100%', hasLoc: true,
+      reqs: ['Berufsausbildung in der Versicherungsbranche','Branchenkenntnisse Unternehmensversicherungen','Weiterbildung im Versicherungsbereich','Praxiserfahrung mit Unternehmensversicherungen','Verhandlungsgeschick','Starke Kommunikationsfähigkeiten','Hohe Dienstleistungsbereitschaft','Selbständige Arbeitsweise']
+    },
+    {
+      title: 'Bereichsleitung International',
+      locations: ['Zürich'],
+      workload: '80–100%', hasLoc: false,
+      reqs: ['Ausbildung Versicherung oder BWL (eidg. Fachausweis, HF/FH)','Führungserfahrung','Erfahrung mit internationalen Projekten','Mehrjährige Erfahrung im int. Versicherungsumfeld','Verhandlungssicher Deutsch & Englisch','Französischkenntnisse','Teamplayer & Kommunikationsstärke','Sales-Affinität']
+    }
+  ];
+}
+
+// ============================================================
+// RENDER JOB CARDS
+// ============================================================
+function renderJobs(jobs) {
+  const wrap = document.getElementById('jobsWrap');
+  if (!jobs.length) {
+    wrap.innerHTML = '<p style="color:var(--muted);padding:16px 0;font-size:14px">Keine offenen Stellen gefunden.</p>';
+    return;
+  }
+
+  const div = document.createElement('div');
+  div.className = 'jobs';
+
+  jobs.forEach((job, i) => {
+    const locStr = job.locations.join(' · ') || 'Schweiz';
+    const badge  = job.locations.length > 1 ? `<span class="jtag">✨ ${job.locations.length} Standorte</span>` : '';
+    const el = document.createElement('div');
+    el.className = 'job-opt';
+    el.id = 'j' + i;
+    el.innerHTML = `
+      <div class="sel-mark">✓</div>
+      <div class="job-title">${x(job.title)}</div>
+      <div class="job-tags" style="margin-top:10px">
+        <span class="jtag">📍 ${x(locStr)}</span>
+        <span class="jtag">⏱ ${x(job.workload)}</span>
+        ${badge}
+      </div>`;
+    el.onclick = () => pickJob(job, i);
+    div.appendChild(el);
+  });
+
+  wrap.innerHTML = '';
+  wrap.appendChild(div);
+}
+
+function x(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function go(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('on'));
+  const el = document.getElementById('s' + n);
+  el.classList.add('on');
+  el.classList.remove('anim'); void el.offsetWidth; el.classList.add('anim');
+
+  const total = S.job ? (S.job.hasLoc ? 5 : 4) : 5;
+  const vis   = (S.job && !S.job.hasLoc) ? (n <= 2 ? n : n - 1) : n;
+  document.getElementById('progFill').style.width  = Math.round(vis / total * 100) + '%';
+  document.getElementById('progLabel').textContent = n === 5 ? 'Fertig ✓' : `Schritt ${vis} / ${total}`;
+  if (n === 5) document.getElementById('progWrap').style.display = 'none';
+
+  document.getElementById('funnel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ============================================================
+// JOB PICK
+// ============================================================
+function pickJob(job, idx) {
+  S.job = job; S.reqs.clear(); S.loc = null;
+  document.querySelectorAll('.job-opt').forEach(o => o.classList.remove('sel'));
+  document.getElementById('j' + idx).classList.add('sel');
+  document.getElementById('b1').disabled = false;
+}
+
+function afterJob() {
+  if (!S.job) return;
+  if (S.job.hasLoc) { buildLocs(); go(2); }
+  else { if (S.job.locations[0]) S.loc = S.job.locations[0]; buildReqs(); go(3); }
+}
+
+// ============================================================
+// LOCATION
+// ============================================================
+function buildLocs() {
+  const grid = document.getElementById('locGrid');
+  grid.innerHTML = '';
+  const locs = [...S.job.locations, 'Flexibel'];
+  locs.forEach(loc => {
+    const icon = LOC_ICONS[loc] || '📍';
+    const btn = document.createElement('button');
+    btn.className = 'loc-btn'; btn.id = 'l_' + loc;
+    btn.innerHTML = `<span class="loc-em">${icon}</span>${x(loc)}`;
+    btn.onclick = () => pickLoc(loc);
+    grid.appendChild(btn);
+  });
+}
+
+function pickLoc(loc) {
+  S.loc = loc;
+  document.querySelectorAll('.loc-btn').forEach(b => b.classList.remove('sel'));
+  document.getElementById('l_' + loc).classList.add('sel');
+  document.getElementById('b2').disabled = false;
+}
+
+function afterLoc() { buildReqs(); go(3); }
+
+// ============================================================
+// REQUIREMENTS — sourced live from API
+// ============================================================
+function buildReqs() {
+  S.reqs.clear();
+  const items = S.job.reqs && S.job.reqs.length ? S.job.reqs : ['Berufserfahrung in der Versicherungsbranche','Kommunikationsstärke','Teamfähigkeit','Kundenorientierung'];
+  const wrap = document.getElementById('reqWrap');
+  wrap.innerHTML = '';
+
+  const sec = document.createElement('div');
+  sec.className = 'chip-section';
+  sec.innerHTML = '<div class="cs-head">Dein Profil — klicke was zutrifft</div><div class="chips" id="chipsBox"></div>';
+  wrap.appendChild(sec);
+
+  const box = document.getElementById('chipsBox');
+  items.forEach(item => {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.textContent = item;
+    b.onclick = () => toggle(b, item, items.length);
+    box.appendChild(b);
+  });
+
+  document.getElementById('tot').textContent = items.length;
+  document.getElementById('cnt').textContent = '0';
+  document.getElementById('cfill').style.width = '0%';
+}
+
+function toggle(btn, item, total) {
+  if (S.reqs.has(item)) { S.reqs.delete(item); btn.classList.remove('on'); }
+  else { S.reqs.add(item); btn.classList.add('on'); }
+  const n = S.reqs.size;
+  document.getElementById('cnt').textContent = n;
+  document.getElementById('cfill').style.width = Math.round(n / total * 100) + '%';
+}
+
+function backReq() {
+  if (S.job && S.job.hasLoc) go(2); else go(1);
+}
+
+// ============================================================
+// SUBMIT
+// ============================================================
+function submit() {
+  let ok = true;
+
+  function v(id, eid, fn) {
+    const el = document.getElementById(id), e = document.getElementById(eid);
+    if (!fn(el.value)) { el.classList.add('err'); e.style.display = 'block'; ok = false; }
+    else { el.classList.remove('err'); e.style.display = 'none'; }
+  }
+
+  v('fn','efn', s => s.trim());
+  v('ln','eln', s => s.trim());
+  v('em','eem', s => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s));
+  v('ph','eph', s => s.trim().length >= 7);
+
+  const ck = document.getElementById('ck'), eck = document.getElementById('eck');
+  if (!ck.checked) { eck.style.display = 'block'; ok = false; } else { eck.style.display = 'none'; }
+
+  if (!ok) return;
+
+  const fn = document.getElementById('fn').value.trim();
+  const ln = document.getElementById('ln').value.trim();
+  const em = document.getElementById('em').value.trim();
+  const ph = document.getElementById('ph').value.trim();
+  const loc = S.loc || (S.job.locations[0]) || '';
+
+  // Save lead
+  try {
+    const leads = JSON.parse(localStorage.getItem('vl_leads') || '[]');
+    leads.push({ ts: new Date().toISOString(), job: S.job.title, loc, name: fn+' '+ln, email: em, phone: ph, reqs: [...S.reqs] });
+    localStorage.setItem('vl_leads', JSON.stringify(leads));
+  } catch(e) {}
+
+  // Fill thank you
+  document.getElementById('su-job').textContent   = S.job.title;
+  document.getElementById('su-name').textContent  = fn + ' ' + ln;
+  document.getElementById('su-email').textContent = em;
+  document.getElementById('su-phone').textContent = ph;
+  if (loc) { document.getElementById('su-loc').textContent = loc; document.getElementById('su-lr').style.display = 'flex'; }
+  else { document.getElementById('su-lr').style.display = 'none'; }
+
+  go(5);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+loadJobs();
+</script>
+</body>
+</html>
